@@ -12,6 +12,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(
     new LoggingInterceptor(),
   );
+
+  // this is my server
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
