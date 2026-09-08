@@ -1,0 +1,27 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  balance  Int   @default(0)
+  Note     Note[]
+}
+
+model Note {
+  id     Int     @id @default(autoincrement())
+  title  String
+  body   String
+  userId Int
+  image  String?
+  user   User    @relation(fields: [userId], references: [id])
+}
