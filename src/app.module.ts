@@ -14,6 +14,7 @@ import { BullModule } from '@nestjs/bullmq';
 import { MailModule } from './mail/mail.module';
 
 @Module({
+  // this is bullmq configuration
   imports: [BullModule.forRoot({
     connection: {
       host: 'localhost',
